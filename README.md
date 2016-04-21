@@ -1,4 +1,4 @@
 Derecho
 =======
 
-sandbox for language learning
+playground for java language
