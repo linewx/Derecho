@@ -32,5 +32,6 @@ public class OuterClass {
         StaticInnerClass staticInnerClass = new StaticInnerClass();
         staticInnerClass.print("i'm in outside");
 
+        float a = 10000000000000l;
     }
 }
