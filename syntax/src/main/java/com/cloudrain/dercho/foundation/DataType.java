@@ -1,8 +1,5 @@
 package com.cloudrain.dercho.foundation;
 
-import com.sun.tools.javac.code.Attribute;
-
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 
 /**
