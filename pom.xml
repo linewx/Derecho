@@ -27,26 +27,11 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${org.apache.maven.plugins.maven_compiler_plugin_version}</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
-
-    <build>
-        <plugins>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${org.apache.maven.plugins_maven-compiler-plugin_version}</version>
+                <version>3.3</version>
                 <configuration>
                     <useIncrementalCompilation>false</useIncrementalCompilation>
                     <source>${jdk.version}</source>

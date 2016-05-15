@@ -15,12 +15,6 @@
         <version>1.0.0-9999-SNAPSHOT</version>
     </parent>
 
-    <parent>
-        <artifactId>parent</artifactId>
-        <groupId>com.cloudrain.derecho</groupId>
-        <version>1.0.0-9999-SNAPSHOT</version>
-    </parent>
-
     <dependencies>
         <dependency>
             <groupId>cglib</groupId>
