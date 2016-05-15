@@ -8,5 +8,11 @@
     <description>java syntax</description>
     <packaging>pom</packaging>
     <version>1.0.0-9999-SNAPSHOT</version>
+
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>com.cloudrain.derecho</groupId>
+        <version>1.0.0-9999-SNAPSHOT</version>
+    </parent>
 </project>
 

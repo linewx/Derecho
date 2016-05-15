@@ -118,6 +118,40 @@ public class DataType {
 
     }
 
+    public void print(byte oneByte) {
+        System.out.println("I'm a byte");
+    }
+
+    /*public void print(int oneInt) {
+        System.out.println("im an int");
+    }*/
+
+    /*public void print(Integer oneInteger) {
+        System.out.println("I'm an Integer");
+
+    }*/
+
+    /*public void print(long oneLong) {
+        System.out.println("I'm a long");
+    }*/
+
+    public void print(float oneFloat) {
+        System.out.println("I'm a float");
+    }
+
+    public void print(Object object) {
+        System.out.println("I'm an object");
+    }
+
+    public void print(int a, long b) {
+        System.out.println("i'm int and long");
+
+    }
+
+    public void print(long a, int b) {
+        System.out.println("i'm long and long");
+    }
+
     public void printLiteralTypes() {
         System.out.println("type of 0 is " + detectLiteralType(0));
         System.out.println("type of a is " + detectLiteralType('a'));
@@ -137,6 +171,10 @@ public class DataType {
         dataType.printSize();
         dataType.printRange();
 
+        byte e = 10;
+        byte f = 11;
+        //byte g = e + f; // 编译错误 +直接将10和11类型提升为了int
+
         dataType.floatType();
         dataType.printLiteralTypes();
 
@@ -148,7 +186,8 @@ public class DataType {
         System.out.println(namedClass);
         System.out.println(arrayClass == namedClass);
         System.out.println(int.class.isInstance(1));
-        double sfsd = 1.0f;
+        byte c = 1;
+        dataType.print(1);
 
     }
 }
