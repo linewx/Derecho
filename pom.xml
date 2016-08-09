@@ -23,6 +23,7 @@
         <org.apache.maven.plugins_maven-compiler-plugin_version>3.3</org.apache.maven.plugins_maven-compiler-plugin_version>
         <jdk.version>1.8</jdk.version>
         <junit_version>4.12</junit_version>
+        <org.apache.maven.plugins.maven_compiler_plugin_version>3.5.1</org.apache.maven.plugins.maven_compiler_plugin_version>
     </properties>
 
     <build>
@@ -31,7 +32,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${org.apache.maven.plugins_maven-compiler-plugin_version}</version>
+                <version>3.3</version>
                 <configuration>
                     <useIncrementalCompilation>false</useIncrementalCompilation>
                     <source>${jdk.version}</source>
