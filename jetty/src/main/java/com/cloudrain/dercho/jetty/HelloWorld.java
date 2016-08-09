@@ -37,6 +37,9 @@ public class HelloWorld extends AbstractHandler
 
     public static void main(String[] args) throws Exception
     {
+        //Long a = Long.parseLong(null);
+        //System.out.println(a);
+        Long a = (Long)null;
         System.out.println(InetAddress.getLocalHost().getCanonicalHostName());
 
         /*ArrayList<String> arrayList = new ArrayList<String>();

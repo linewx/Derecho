@@ -13,6 +13,7 @@
         <module>thread</module>
         <module>antlr4</module>
         <module>jetty</module>
+        <module>database</module>
     </modules>
 
     <properties>

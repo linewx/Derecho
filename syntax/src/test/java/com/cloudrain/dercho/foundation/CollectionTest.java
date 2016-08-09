@@ -69,8 +69,6 @@ public class CollectionTest {
         Assert.assertEquals(fixture.size(), 6);
     }
 
-
-
     @Test
     public void isEmptyTest() {
         Assert.assertFalse(fixture.isEmpty());
