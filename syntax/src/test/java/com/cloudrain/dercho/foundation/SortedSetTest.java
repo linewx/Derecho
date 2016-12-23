@@ -33,7 +33,7 @@ public class SortedSetTest {
 
     @Test
     public void headSetTest() {
-        Set<String> headSet = fixture.headSet("groovy")
+        //Set<String> headSet = fixture.headSet("groovy")
     }
 
 }

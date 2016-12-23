@@ -14,6 +14,10 @@
         <module>antlr4</module>
         <module>jetty</module>
         <module>database</module>
+        <module>jmx</module>
+        <module>webapp</module>
+        <module>sandbox</module>
+        <module>ds</module>
     </modules>
 
     <properties>
