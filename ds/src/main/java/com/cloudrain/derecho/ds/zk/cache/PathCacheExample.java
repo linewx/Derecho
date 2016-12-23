@@ -1,4 +1,4 @@
-package com.cloudrain.derecho.ds.zk;
+package com.cloudrain.derecho.ds.zk.cache;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
