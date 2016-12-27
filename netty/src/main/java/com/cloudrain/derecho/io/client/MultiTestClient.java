@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
  * Created by lugan on 12/27/2016.
  */
 public class MultiTestClient{
-    private static CountDownLatch latch = new CountDownLatch(5);
+    private static CountDownLatch latch = new CountDownLatch(10);
 
     public static void main(String ...argv) throws Exception{
         Runnable oneClient = () -> {
@@ -37,7 +37,7 @@ public class MultiTestClient{
 
 
         long startTime = System.currentTimeMillis();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             new Thread(oneClient).start();
         }
 

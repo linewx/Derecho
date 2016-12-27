@@ -11,7 +11,7 @@ import java.sql.ClientInfoStatus;
 /**
  * Created by lugan on 12/27/2016.
  */
-public class EchoServer {
+public class SingleThreadEchoServer {
     public static void main(String ...argv) throws Exception{
         int port = 5555;
         ServerSocket socket = new ServerSocket(port);
