@@ -18,6 +18,7 @@
         <module>webapp</module>
         <module>sandbox</module>
         <module>ds</module>
+        <module>netty</module>
     </modules>
 
     <properties>
