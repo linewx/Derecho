@@ -1,4 +1,4 @@
-package com.cloudrain.derecho.io;
+package com.cloudrain.derecho.io.fundamental;
 
 import java.io.BufferedReader;
 import java.io.IOException;
