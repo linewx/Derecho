@@ -1,12 +1,10 @@
-package com.cloudrain.derecho.io.SingleThreadServer;
+package com.cloudrain.derecho.io.server;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.Buffer;
-import java.sql.ClientInfoStatus;
 
 /**
  * Created by lugan on 12/27/2016.
@@ -25,7 +23,7 @@ public class SingleThreadEchoServer {
             //System.out.println(clientInput);
             Thread.sleep(2000);
             clientWriter.println(clientInput);
-            clientSocket.close();
+            //clientSocket.close();
         }
     }
 }

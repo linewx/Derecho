@@ -28,6 +28,7 @@ public class MultiTestClient{
                 serverWriter.println("this is the test words");
                 String echoString = serverReader.readLine();
                 System.out.println("received string " + echoString);
+                socket.close();
             }catch (IOException e) {
                 //e.printStackTrace();
             } finally {
