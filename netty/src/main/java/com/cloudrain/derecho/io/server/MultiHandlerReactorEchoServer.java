@@ -21,17 +21,20 @@ public class MultiHandlerReactorEchoServer {
     public static class Processor {
         public static ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
+
         public static void process(SelectionKey key) {
             Runnable runnable = () -> {
                 SocketChannel socketChannel = null;
                 try {
-                    socketChannel = (SocketChannel)key.channel();
+                    socketChannel = (SocketChannel) key.channel();
                     ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
                     int count = socketChannel.read(byteBuffer);
-                    if (count <= 0) {
+                    if (count < 0) {
                         socketChannel.close();
                         key.cancel();
-                    }else {
+                    } else if (count == 0) {
+                        return;
+                    } else {
                         Thread.sleep(2000);
                         byteBuffer.flip();
                         socketChannel.write(byteBuffer);
@@ -39,18 +42,18 @@ public class MultiHandlerReactorEchoServer {
                         byteBuffer.clear();
                     }
 
-                }catch (Exception e) {
+                } catch (Exception e) {
                     try {
                         socketChannel.close();
-                    }catch (Exception e1) {
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }
 
 
             };
-            //executorService.submit(runnable);
-            runnable.run();
+            executorService.submit(runnable);
+            //runnable.run();
         }
     }
 
@@ -62,20 +65,20 @@ public class MultiHandlerReactorEchoServer {
         serverSocketChannel.bind(new InetSocketAddress(port));
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
-        while(selector.select() > 0) {
+        while (selector.select() > 0) {
+            System.out.println("select again");
             Set<SelectionKey> selectionKeys = selector.selectedKeys();
             Iterator<SelectionKey> iterator = selectionKeys.iterator();
 
-            while(iterator.hasNext()) {
+            while (iterator.hasNext()) {
                 SelectionKey key = iterator.next();
                 iterator.remove();
-
                 if (key.isAcceptable()) {
                     ServerSocketChannel socketChannel = (ServerSocketChannel) key.channel();
                     SocketChannel clientSocketChannel = socketChannel.accept();
                     clientSocketChannel.configureBlocking(false);
                     clientSocketChannel.register(selector, SelectionKey.OP_READ);
-                }else if(key.isReadable()) {
+                } else if (key.isReadable()) {
                     Processor.process(key);
                 }
             }
