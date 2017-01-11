@@ -35,11 +35,11 @@ public class ReactorEchoServer {
                     clientSocketChannel.register(selector, SelectionKey.OP_READ);
                 } else if (key.isReadable()) {
                     SocketChannel clientSocketChannel = (SocketChannel) key.channel();
-                    ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-                    int count = clientSocketChannel.read(byteBuffer);
-                    if (count < 0) {
-                        clientSocketChannel.close();
-                        key.cancel();
+                        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+                        int count = clientSocketChannel.read(byteBuffer);
+                        if (count < 0) {
+                            clientSocketChannel.close();
+                            key.cancel();
                     } else if (count == 0) {
                         System.out.println("no data read");
                     } else {
