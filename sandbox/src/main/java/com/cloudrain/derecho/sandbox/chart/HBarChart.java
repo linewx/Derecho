@@ -105,7 +105,7 @@ public class HBarChart extends ApplicationFrame {
                 "Category",                 // domain axis label
                 "Score (%)",                // range axis label
                 dataset,                    // data
-                PlotOrientation.HORIZONTAL, // orientation
+                PlotOrientation.VERTICAL, // orientation
                 true,                       // include legend
                 true,
                 false

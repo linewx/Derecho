@@ -2,16 +2,23 @@ package com.cloudrain.derecho.sandbox.chart;
 import java.awt.*;
 import java.awt.font.TextAttribute;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.AttributedString;
 
 import javax.swing.JPanel;
 
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Image;
 import com.lowagie.text.pdf.DefaultFontMapper;
 import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfTemplate;
 import com.lowagie.text.pdf.PdfWriter;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -127,10 +134,53 @@ public class PieChart extends ApplicationFrame {
      */
     public static JPanel createDemoPanel() throws Exception{
         JFreeChart chart = createChart(createDataset());
-        //saveChartToPDF(chart, "C:\\Users\\lugan\\test\\test.pdf",500, 500);
+        saveChartToPDF(chart, "C:\\Users\\lugan\\test\\test.pdf",300, 300);
+        //create(new FileOutputStream("C:\\Users\\lugan\\test\\test.pdf"), chart);
         return new ChartPanel(chart);
     }
 
+    public static void create(OutputStream outputStream, JFreeChart chart) throws DocumentException, IOException {
+        Document document = null;
+        PdfWriter writer = null;
+
+        try {
+            //instantiate document and writer
+            document = new Document();
+            writer = PdfWriter.getInstance(document, outputStream);
+
+            //open document
+            document.open();
+
+            //add image
+            int width = 500;
+            int height = 500;
+            BufferedImage bufferedImage = chart.createBufferedImage(width, height);
+            Image image = Image.getInstance(writer, bufferedImage, 1.0f);
+            document.add(image);
+
+            //release resources
+            document.close();
+            document = null;
+
+            writer.close();
+            writer = null;
+        } catch(DocumentException de) {
+            throw de;
+        } catch (IOException ioe) {
+            throw ioe;
+        } finally {
+            //release resources
+            if(null != document) {
+                try { document.close(); }
+                catch(Exception ex) { }
+            }
+
+            if(null != writer) {
+                try { writer.close(); }
+                catch(Exception ex) { }
+            }
+        }
+    }
     public static void saveChartToPDF(JFreeChart chart, String fileName, int width, int height) throws Exception {
         if (chart != null) {
             BufferedOutputStream out = null;
@@ -159,11 +209,11 @@ public class PieChart extends ApplicationFrame {
             } finally {
                 if (out != null) {
                     out.close();
+
                 }
             }
         }//else: input values not availabel
     }//saveChartToPDF()
-
     /**
      * Starting point for the demonstration application.
      *
